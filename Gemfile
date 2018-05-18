@@ -17,7 +17,7 @@ gem "sass-rails", "~> 5.0"
 gem "mysql2"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-
+gem"sqlite3"
 group :development, :test do
   gem "byebug", platform: :mri
 end
