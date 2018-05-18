@@ -1,14 +1,23 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Pr1702MovieOnline</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Pr1702MovieOnline</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+<title>MovieHunter</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="./assets/stylesheets/style.css" type="text/css" media="all" />
+<script type="text/javascript" src="javascripts/jquery.min.js"></script>
+<script type="text/javascript" src="javascripts/jquery-func.js"></script>
+<link rel="stylesheet" href="stylesheets/ie6.css" type="text/css" media="all" />
+</head>
+<body>
+<div id="shell">
+	<%= render 'layouts/header' %>
+	<%= yield %>
+	<%= render 'layouts/footer' %>
+	</div>
+</body>
 </html>
