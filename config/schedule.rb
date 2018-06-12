@@ -20,5 +20,5 @@
 # Learn more: http://github.com/javan/whenever
 
 every 1.hour do
-  runner "Film.update_comment_and_rating!"
+  runner "Film.update_stat_info!"
 end
