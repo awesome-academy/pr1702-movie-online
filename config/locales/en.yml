@@ -63,3 +63,11 @@ en:
     view:
       link_not_exist: "Link not exist"
       list_of_episodes: "List of episode"
+  users:
+    user:
+      cancel: "Cancel"
+      delete: "Delete"
+      accept: "Accept"
+      request: "Request"
+      unfriend: "Unfriend"
+
