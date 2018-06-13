@@ -14,19 +14,20 @@ gem "dotenv-rails", require: "dotenv/load"
 gem "jbuilder", "~> 2.5"
 gem "jquery-rails"
 gem "omniauth-facebook"
+gem "pg"
 gem "puma", "~> 3.0"
 gem "rails", "~> 5.0.7"
+gem "rails_admin"
 gem "ransack"
+gem "ratyrate"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem "ratyrate"
 gem "whenever", require: false
 gem "will_paginate", "3.1.6"
 
 group :development, :test do
   gem "byebug", platform: :mri
-  gem "mysql2"
 end
 
 group :development do
@@ -37,7 +38,6 @@ group :development do
 end
 
 group :production do
-  gem "pg", "0.20"
 end
 
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -6,3 +6,12 @@
     confirmed_at: Time.now,
     confirmation_token: nil)
 end
+
+User.create(
+    email: "user12@gmail.com",
+    name: "User12",
+    password: "123456",
+    confirmed_at: Time.now,
+    confirmation_token: nil,
+    role: 1,
+)

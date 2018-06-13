@@ -5,7 +5,6 @@ class User < ApplicationRecord
   ratyrate_rater
 
   has_many :comments, dependent: :destroy
-  has_many :ratings, dependent: :destroy
   has_many :histories, dependent: :destroy
   has_many :favourites, dependent: :destroy
 
@@ -13,6 +12,7 @@ class User < ApplicationRecord
   has_many :favourite_films, through: :histories, source: :film
 
   scope :created_sort, ->{order created: :desc}
+  enum role: [:normal, :admin]
 
   def friends
     Relation.where(user1_id: self.id).or(Relation.where(user2_id: self.id))

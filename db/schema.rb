@@ -10,18 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180608133328) do
+ActiveRecord::Schema.define(version: 20180613022158) do
 
-  create_table "average_caches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
     t.string   "rateable_type"
     t.integer  "rateable_id"
-    t.float    "avg",           limit: 24, null: false
+    t.float    "avg",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "comments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "film_id"
     t.string   "content"
@@ -31,7 +34,7 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["user_id"], name: "index_comments_on_user_id", using: :btree
   end
 
-  create_table "episodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "episodes", force: :cascade do |t|
     t.integer  "film_id"
     t.integer  "num_epi"
     t.string   "duration"
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["film_id"], name: "index_episodes_on_film_id", using: :btree
   end
 
-  create_table "favourites", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "favourites", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "film_id"
     t.datetime "created_at", null: false
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["user_id"], name: "index_favourites_on_user_id", using: :btree
   end
 
-  create_table "film_genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "film_genres", force: :cascade do |t|
     t.integer  "film_id"
     t.integer  "genre_id"
     t.datetime "created_at", null: false
@@ -58,7 +61,7 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["genre_id"], name: "index_film_genres_on_genre_id", using: :btree
   end
 
-  create_table "film_origins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "film_origins", force: :cascade do |t|
     t.integer  "film_id"
     t.integer  "origin_id"
     t.datetime "created_at", null: false
@@ -67,27 +70,28 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["origin_id"], name: "index_film_origins_on_origin_id", using: :btree
   end
 
-  create_table "films", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "films", force: :cascade do |t|
     t.string   "name"
     t.string   "alter_name"
     t.integer  "copyright_year"
-    t.text     "description",    limit: 65535
+    t.text     "description"
     t.string   "img"
     t.integer  "num_ep"
     t.integer  "num_view"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "comment_count"
-    t.float    "rate_point",     limit: 24
+    t.float    "rate_point"
+    t.integer  "released_episodes_status"
   end
 
-  create_table "genres", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "genres", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "histories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "histories", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "film_id"
     t.datetime "created_at", null: false
@@ -96,7 +100,7 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["user_id"], name: "index_histories_on_user_id", using: :btree
   end
 
-  create_table "link_episodes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "link_episodes", force: :cascade do |t|
     t.integer  "episode_id"
     t.string   "link",       limit: 5000
     t.integer  "quality"
@@ -105,25 +109,25 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["episode_id"], name: "index_link_episodes_on_episode_id", using: :btree
   end
 
-  create_table "origins", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "origins", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "overall_averages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "overall_averages", force: :cascade do |t|
     t.string   "rateable_type"
     t.integer  "rateable_id"
-    t.float    "overall_avg",   limit: 24, null: false
+    t.float    "overall_avg",   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "rates", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rates", force: :cascade do |t|
     t.integer  "rater_id"
     t.string   "rateable_type"
     t.integer  "rateable_id"
-    t.float    "stars",         limit: 24, null: false
+    t.float    "stars",         null: false
     t.string   "dimension"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -131,36 +135,25 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["rater_id"], name: "index_rates_on_rater_id", using: :btree
   end
 
-  create_table "rating_caches", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "rating_caches", force: :cascade do |t|
     t.string   "cacheable_type"
     t.integer  "cacheable_id"
-    t.float    "avg",            limit: 24, null: false
-    t.integer  "qty",                       null: false
+    t.float    "avg",            null: false
+    t.integer  "qty",            null: false
     t.string   "dimension"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["cacheable_id", "cacheable_type"], name: "index_rating_caches_on_cacheable_id_and_cacheable_type", using: :btree
   end
 
-  create_table "ratings", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.integer  "user_id"
-    t.integer  "film_id"
-    t.integer  "star"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["film_id", "user_id"], name: "index_ratings_on_film_id_and_user_id", unique: true, using: :btree
-    t.index ["film_id"], name: "index_ratings_on_film_id", using: :btree
-    t.index ["user_id"], name: "index_ratings_on_user_id", using: :btree
-  end
-
-  create_table "relationships", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "relationships", force: :cascade do |t|
     t.integer  "user1_id"
     t.integer  "user2_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "shares", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "shares", force: :cascade do |t|
     t.integer  "shared_user_id"
     t.integer  "sharing_user_id"
     t.integer  "film_id"
@@ -170,7 +163,7 @@ ActiveRecord::Schema.define(version: 20180608133328) do
     t.index ["film_id"], name: "index_shares_on_film_id", using: :btree
   end
 
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"
@@ -202,7 +195,5 @@ ActiveRecord::Schema.define(version: 20180608133328) do
   add_foreign_key "histories", "films"
   add_foreign_key "histories", "users"
   add_foreign_key "link_episodes", "episodes"
-  add_foreign_key "ratings", "films"
-  add_foreign_key "ratings", "users"
   add_foreign_key "shares", "films"
 end
