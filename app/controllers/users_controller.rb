@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @users = User.created_sort.paginate(page: params[:page], per_page: 10)
+    @users = User.paginate(page: params[:page], per_page: 10)
   end
 
   def show
