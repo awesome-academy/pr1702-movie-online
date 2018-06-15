@@ -14,8 +14,17 @@ class User < ApplicationRecord
   scope :created_sort, ->{order created: :desc}
   enum role: [:normal, :admin]
 
+  has_many :requesting_friends, -> { where(relationships: {status: :requested})},
+      class_name: Relationship.name, foreign_key: :user_id
+  has_many :requested_friends, -> { where(relationships: {status: :requested})},
+      class_name: Relationship.name, foreign_key: :friend_id
+  has_many :accepting_friends, -> { where(relationships: {status: :accepted})},
+      class_name: Relationship.name, foreign_key: :user_id
+  has_many :accepted_friends, -> { where(relationships: {status: :accepted})},
+      class_name: Relationship.name, foreign_key: :friend_id
+
   def friends
-    Relation.where(user1_id: self.id).or(Relation.where(user2_id: self.id))
+    self.accepting_friend.or(self.accepted_friend)
   end
 
   def self.from_omniauth(auth)
