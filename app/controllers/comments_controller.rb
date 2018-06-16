@@ -7,13 +7,16 @@ class CommentsController < ApplicationController
     @comment = @film.comments.build(comment_params)
     @comment.user_id = current_user.id
     @comment.film_id = @film.id
-    flash[:danger]= "comment not save!" unless @comment.save 
+    flash[:danger]= t "controllers.comments.create.comment_not_save" unless @comment.save 
     redirect_to film_path(@film)
   end
 
   def destroy
-    @comment.destroy
-    flash[:success] = "Comment deleted"
+    if @comment.destroy
+      flash[:success] = t "controllers.comments.destroy.delete_success"
+    else
+      flash[:danger] = t "controllers.comments.destroy.delete_fail"
+    end
     redirect_to film_path(@film)
   end
 
@@ -36,7 +39,7 @@ class CommentsController < ApplicationController
 
   def comment_owner
     unless current_user.id == @comment.user_id
-      flash[:notice] = "You can not do that"
+      flash[:notice] = t "controllers.comments.comment_owner.you_can_not"
       redirect_to @post
     end
   end

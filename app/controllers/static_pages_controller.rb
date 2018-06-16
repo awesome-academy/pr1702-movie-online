@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
     else
       film_search = @q.result
     end
-    @films = film_search.paginate(page: params[:page], per_page: 10)
+    @films = film_search.paginate(page: params[:page], per_page: 12)
   end
 
   private

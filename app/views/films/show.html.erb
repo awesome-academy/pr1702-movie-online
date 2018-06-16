@@ -15,10 +15,9 @@
         <div id="DIV_11">
           <div id="DIV_12">
             <dl id="DL_13">
-                Số người đánh giá:
-              </dt>
+      
               <dt id="DT_26">
-                Quốc gia:
+                <%= t ".nation" %>
               </dt>
               <dd id="DD_27">
                 <% @film.origins.each do |origin| %>
@@ -26,7 +25,7 @@
                 <%end%>
               </dd><br id="BR_29" />
               <dt id="DT_30">
-                Năm:
+                <%= t ".year" %>
               </dt>
               <dd id="DD_31">
                 <a title="Phim mới 2018" href="phim-2018/" id="A_32">
@@ -34,24 +33,24 @@
                 </a>
               </dd><br id="BR_33" />
               <dt id="DT_34">
-                Ngôn ngữ:
+                <%= t ".language" %>
               </dt>
               <dd id="DD_47">
-                Phụ đề Việt
+                <%= t ".subtitle" %>
               </dd><br id="BR_48" />
               <dt id="DT_49">
-                Thể loại:
+                <%= t ".genres" %>
               </dt>
               <dd id="DD_50">
                 <% @film.genres.each do |genres| %>
-                <a href="the-loai/phim-kinh-di/" title="Phim kinh dị" id="A_51">
+                <a id="A_51">
                   <%= genres.name %> ,
                 </a>
                 <%end%>
               </dd><br id="BR_54" />
               <div class='star-rating' data-score=<%= @avg_rating %>></div>
               <dt id="DT_58">
-                Lượt xem:
+                <%= t ".view" %>
               </dt>
               <dd id="DD_59">
                 19,152
@@ -66,7 +65,7 @@
           </div>
         </div>
         <div id="DIV_63">
-          Rate this film  : <%= rating_for @film, 'rate' %>
+          <%= t ".rate_this_film" %> <%= rating_for @film, 'rate' %>
           <span id="SPAN_80"></span>
           <div id="IMG_83" >
           <%= image_tag(@film.img) %>
@@ -92,7 +91,7 @@
           <%= image_tag(@film.img) %>
           </div>
           <h2 id="H2_95">
-            Xem phim
+            <%= t ".watch" %>
           </h2>
           <ul id="UL_96">
             <li id="LI_97">
@@ -136,7 +135,7 @@
 
   <article id="ARTICLE_189">
       <h2 id="H2_190">
-        Nội dung phim
+        <%= t ".content" %> 
       </h2>
       <div id="DIV_191">
         <span id="SPAN_192"></span>
@@ -153,7 +152,7 @@
 
 <div id="DIV_204">
   <h4 id="H4_205">
-    Bình luận về phim
+    <%= t ".comments" %>
   </h4>
   <div id="DIV_206">
     <%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track": false %>
