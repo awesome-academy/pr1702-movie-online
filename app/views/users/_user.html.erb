@@ -1,4 +1,33 @@
 <li>
   <%= gravatar_for user, size: 50 %>
   <%= link_to user.email, user %>
+
+  <% if params[:controller] == "relationships" && params[:action] == "requesting_friends" %>
+    <%= form_for :cancel, url: cancel_request_with_relationship_path(current_user.active_relationships.find_by(requested_id: user.id)), method: :delete do |f| %>
+      <%= hidden_field_tag "requesting_id",  current_user.id %>
+      <%= hidden_field_tag "requested_id", user.id %>
+      <%= f.submit "Cancel" %>
+    <% end %>
+  <% end %>
+
+  <% if params[:controller] == "relationships" && params[:action] == "requested_friends" %>
+    <%= form_for :delete, url: delete_request_from_relationship_path(current_user.passive_relationships.find_by(requesting_id: user.id)), method: :delete do |f| %>
+      <%= hidden_field_tag "requesting_id",  user.id %>
+      <%= hidden_field_tag "requested_id", current_user.id %>
+      <%= f.submit "Delete" %>
+    <% end %>
+
+    <%= form_for :accept, url: accept_friend_with_relationship_path(current_user.passive_relationships.find_by(requesting_id: user.id)), method: :patch do |f| %>
+      <%= hidden_field_tag "requesting_id",  user.id %>
+      <%= hidden_field_tag "requested_id", current_user.id %>
+      <%= f.submit "Accept" %>
+    <% end %>
+  <% end %>
+
+  <% if params[:controller] == "users" && params[:action] == "index" %>
+    <%= form_for current_user.active_relationships.build(requested_id: user.id), url: request_friend_with_path do |f| %>
+      <%= hidden_field_tag "requested_id", user.id %>
+      <%= f.submit "Request" %>
+    <% end %>
+  <% end %>
 </li>
