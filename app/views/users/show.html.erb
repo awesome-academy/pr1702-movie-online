@@ -3,8 +3,12 @@
     <section class="users">
       <h1>
         <%= gravatar_for @user %>
+        <%= @user.name %>
         <%= @user.email %>
       </h1>
     </section>
+    <% if user_signed_in? && @user != current_user %>
+    	<button type="button", style="background-color:blue;"><%= t ".addfriend" %></button>
+    <% end %>
   </aside>
 </div>

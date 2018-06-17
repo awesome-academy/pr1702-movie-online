@@ -20,6 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  controllers:
+    comments:
+      create:
+        comment_not_save: "comment not save!"
+      destroy: 
+        delete_success: "Comment deleted"
+        delete_fail: "Delete comment fail !"
+      comment_owner:
+        you_can_not: "You can not do that"
   layouts:
     header:
       movie_hunter: "Movie Hunter"
@@ -49,6 +58,8 @@ en:
       reserved: "- All Rights Reserved"
       design_by: "Design by"
       link_theme: "ChocoTemplates.com"
+    application:
+      pr1720: "Pr1702MovieOnline"
   static_pages:
     home:
       lastest_trailer: "NEWEST"
@@ -63,3 +74,17 @@ en:
     view:
       link_not_exist: "Link not exist"
       list_of_episodes: "List of episode"
+    show:
+      nation: "Quốc gia:"
+      year: "Năm:"
+      language: "Ngôn ngữ:"
+      subtitle: "Phụ đề Việt"
+      genres: "Thể loại:"
+      view: "Lượt xem:"
+      rate_this_film: "Rate this film  :"
+      watch: "Xem phim"
+      content: "Nội dung phim"
+      comments: "Bình luận về phim"
+  users:
+    show:
+      addfriend: "Add Friend"

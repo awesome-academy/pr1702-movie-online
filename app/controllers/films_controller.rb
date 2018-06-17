@@ -15,15 +15,14 @@ class FilmsController < ApplicationController
   end
 
   def top_movie
-    @top_movies = Film.top_movie_by(params[:type]).paginate(page: params[:page], per_page: 10)
-    # @top_movies = top_movie.
+    @top_movies = Film.top_movie_by(params[:type]).paginate(page: params[:page], per_page: 12)
   end
 
   def show
     @film = Film.find_by id: params[:id]
     redirect_to root_url unless @film
     @avg_rating = @film.rate_cal
-    @comments = @film.comments.order("created_at DESC").paginate(page: params[:page], per_page: 10)
+    @comments = @film.comments.order("created_at DESC").paginate(page: params[:page], per_page: 12)
   end
 
   def view
