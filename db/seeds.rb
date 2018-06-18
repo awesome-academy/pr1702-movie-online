@@ -15,3 +15,11 @@ User.create(
     confirmation_token: nil,
     role: 1,
 )
+
+Relationship.create(requesting_id: User.first.id, requested_id: User.second.id, status:"accepted")
+
+Relationship.create(requesting_id: User.first.id, requested_id: User.third.id, status:"requested")
+
+Relationship.create(requesting_id: User.fifth.id, requested_id: User.first.id, status:"requested")
+
+Relationship.create(requesting_id: User.fourth.id, requested_id: User.first.id, status:"requested")
