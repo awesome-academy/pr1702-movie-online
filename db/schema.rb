@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180613134423) do
+ActiveRecord::Schema.define(version: 20180618070742) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -147,11 +147,14 @@ ActiveRecord::Schema.define(version: 20180613134423) do
   end
 
   create_table "relationships", force: :cascade do |t|
-    t.integer  "user1_id"
-    t.integer  "user2_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "requesting_id"
+    t.integer  "requested_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "status"
+    t.index ["requested_id"], name: "index_relationships_on_requested_id", using: :btree
+    t.index ["requesting_id", "requested_id"], name: "index_relationships_on_requesting_id_and_requested_id", using: :btree
+    t.index ["requesting_id"], name: "index_relationships_on_requesting_id", using: :btree
   end
 
   create_table "shares", force: :cascade do |t|
