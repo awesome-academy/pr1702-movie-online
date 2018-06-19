@@ -33,6 +33,22 @@ en:
         delete_fail: "Delete comment fail !"
       comment_owner:
         you_can_not: "You can not do that"
+    relationships:
+      create:
+        request_success: "Request friend succeeds"
+        request_failure: "Request friend fails"
+      update:
+        accept_success: "Accept friend succeeds"
+        accept_failure: "Accept friend fails"
+      unfriend:
+        unfriend_success: "Unfriend succeeds"
+        unfriend_failure: "Unfriend fails"
+      cancel_request_with:
+        cancel_success: "Cancel succeeds"
+        cancel_failure: "Cancel fails"
+      delete_request_from:
+        delete_success: "Delete succeeds"
+        delete_failure: "Delete fails"
   layouts:
     header:
       movie_hunter: "Movie Hunter"
