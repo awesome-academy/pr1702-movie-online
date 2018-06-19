@@ -3,7 +3,7 @@
   <%= link_to user.email, user %>
 
   <% if params[:controller] == "relationships" && params[:action] == "requesting_friends" %>
-    <%= link_to (t ".cancel"), cancel_request_with_relationship_path(current_user.get_relationship(user, :active, :requested_id)), method: :delete %>
+    <%= link_to (t ".cancel"), cancel_request_with_relationship_path(current_user.get_relationship(user, :active, :requested_id), requested_user: user.id), method: :delete %>
   <% end %>
 
   <% if params[:controller] == "relationships" && params[:action] == "requested_friends" %>
