@@ -85,15 +85,15 @@ class User < ApplicationRecord
     end
   end
 
-  private
-  def is_friend_with? other
-    friends.include? other
-  end
-
   def involved_with? other
     active_rel_with_other = active_relationships.find_by requested_id: other.id
     passsive_rel_with_other = passive_relationships.find_by requesting_id: other.id
     active_rel_with_other.present? || passsive_rel_with_other.present?
+  end
+
+  private
+  def is_friend_with? other
+    friends.include? other
   end
 
   def check_relationship_status_with other, status
