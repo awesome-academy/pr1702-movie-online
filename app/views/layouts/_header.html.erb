@@ -11,12 +11,8 @@
     <div id="navigation">
       <ul>
         <li><a class="active"><%= link_to (t ".home") ,root_path%></a></li>
-        <li><%= link_to (t".new"), new_path%></li>
-        <li><%= link_to (t".theaters")  %></li>
-        <li><%= link_to (t".coming_soon") %></li>
         <li><%= render 'devise/menu/registration_items' %></li>
         <li><%= render 'devise/menu/login_items' %></li>
-        <li><%= link_to "USERS", users_path %></li>
       </ul>
     </div>
     <div id="sub-navigation">

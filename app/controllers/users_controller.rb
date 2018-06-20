@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   end
 
   def show
+  	@relationship = Relationship.new
     @user = User.find_by id: params[:id]
     redirect_to users_path unless @user
   end

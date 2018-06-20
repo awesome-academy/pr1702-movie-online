@@ -1,10 +1,10 @@
 class StaticPagesController < ApplicationController
   skip_before_action :authenticate_user!
   def home
-    @top_updated_film = Film.top_updated.limit(5)
-    @top_rating_film = Film.top_rate.limit(5)
-    @top_view_film = Film.top_view.limit(5)
-    @top_comment_film = Film.top_comment.limit(5)
+    @top_updated_film = Film.top_updated.limit(6)
+    @top_rating_film = Film.top_rate.limit(6)
+    @top_view_film = Film.top_view.limit(6)
+    @top_comment_film = Film.top_comment.limit(6)
   end
 
   def new

@@ -114,3 +114,8 @@ en:
       unfriend: "Unfriend"
     show:
       addfriend: "Add Friend"
+  relationships:
+    index:
+      list_friend: "LIST FRIEND"
+      requested_friend: "REQUESTED FRIEND"
+      requesting_friend: "REQUESTING FRIEND"

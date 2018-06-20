@@ -84,7 +84,7 @@ class User < ApplicationRecord
       end
     end
   end
-
+  
   def involved_with? other
     active_rel_with_other = active_relationships.find_by requested_id: other.id
     passsive_rel_with_other = passive_relationships.find_by requesting_id: other.id

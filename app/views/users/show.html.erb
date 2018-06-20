@@ -8,7 +8,12 @@
       </h1>
     </section>
     <% if user_signed_in? && @user != current_user %>
-    	<button type="button", style="background-color:blue;"><%= t ".addfriend" %></button>
+      <% if !current_user.involved_with?(@user) %>
+      	<%= form_for @relationship do |f| %>
+          <%= hidden_field_tag "requested_id", @user.id %>
+          <%= f.submit t ".addfriend" %>
+        <% end %>
+      <% end %>
     <% end %>
   </aside>
 </div>

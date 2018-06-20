@@ -1,29 +1,49 @@
 <li>
-  <%= gravatar_for user, size: 50 %>
-  <%= link_to user.email, user %>
+  <div id="DIV_1img">
+    <a id="A_2img">
+      <div id="IMG_3img" >
+        <%= gravatar_for user, size: 40 %>
+      </div>
+    </a>
+  </div>
+  <div id="DIV_1cmt">
+    <div id="DIV_2cmt">
+      <div id="DIV_5cmt">
+        <div id="DIV_6cmt">
+          <span id="SPAN_7cmt">
+          <%= link_to user.name, user %>
+          </span>
+          <div id="DIV_12cmt">
+            <div id="DIV_13cmt">        
+              <% if params[:controller] == "relationships" && params[:action] == "requesting_friends" %>
+                <%= link_to (t ".cancel"), cancel_request_with_relationship_path(current_user.get_relationship(user, :active, :requested_id), requested_user: user.id), method: :delete %>
+              <% end %>
 
-  <% if params[:controller] == "relationships" && params[:action] == "requesting_friends" %>
-    <%= link_to (t ".cancel"), cancel_request_with_relationship_path(current_user.get_relationship(user, :active, :requested_id), requested_user: user.id), method: :delete %>
-  <% end %>
+              <% if params[:controller] == "relationships" && params[:action] == "requested_friends" %>
+                <%= link_to (t ".delete"), delete_request_from_relationship_path(current_user.get_relationship(user, :passive, :requesting_id), requesting_user: user.id), method: :delete %>
+                <%= form_for current_user.get_relationship(user, :passive, :requesting_id), method: :patch do |f| %>
+                  <%= hidden_field_tag "requesting_id",  user.id %>
+                  <%= f.submit t ".accept" %>
+                <% end %>
+              <% end %>
 
-  <% if params[:controller] == "relationships" && params[:action] == "requested_friends" %>
-    <%= link_to (t ".delete"), delete_request_from_relationship_path(current_user.get_relationship(user, :passive, :requesting_id), requesting_user: user.id), method: :delete %>
-    <%= form_for current_user.get_relationship(user, :passive, :requesting_id), method: :patch do |f| %>
-      <%= hidden_field_tag "requesting_id",  user.id %>
-      <%= f.submit t ".accept" %>
-    <% end %>
-  <% end %>
+              <% if params[:controller] == "users" && params[:action] == "index" %>
+                <% if (current_user != user) && (!current_user.involved_with? user) %>
+                  <%= form_for @relationship do |f| %>
+                    <%= hidden_field_tag "requested_id", user.id %>
+                    <%= f.submit t ".request" %>
+                  <% end %>
+                <% end %>
+              <% end %>
 
-  <% if params[:controller] == "users" && params[:action] == "index" %>
-    <% if (current_user != user) && (!current_user.involved_with? user) %>
-      <%= form_for @relationship do |f| %>
-        <%= hidden_field_tag "requested_id", user.id %>
-        <%= f.submit t ".request" %>
-      <% end %>
-    <% end %>
-  <% end %>
-
-  <% if params[:controller] == "relationships" && params[:action] == "index" %>
-    <%= link_to (t ".unfriend"), unfriend_path(friend_id: user.id), method: :delete %>
-  <% end %>
+              <% if params[:controller] == "relationships" && params[:action] == "index" %>
+                <%= link_to (t ".unfriend"), unfriend_path(friend_id: user.id), method: :delete %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </li>
+</br>
