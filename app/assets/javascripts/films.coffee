@@ -1,3 +1,13 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+change = ->
+    for player in document.getElementsByClassName 'video-js'
+        video = videojs('video_player')
+        console.log("Change, assigning video")
+
+before_load = ->
+    for player in document.getElementsByClassName 'video-js'
+        video = videojs('video_player')
+        video.dispose()
+        console.log("before_load, disposing of video")
+
+$(document).on('turbolinks:load', change)
+$(document).on('turbolinks:before-visit', before_load)

@@ -16,5 +16,6 @@
 //= require ratyrate
 //= require bootstrap
 //= require turbolinks
+//= require video
 //= require_tree .
 
