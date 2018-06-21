@@ -5,9 +5,9 @@
   <div id="content">
   <div class="box">
       <div class="head">
-        <h2><%= t".top_view"%></h2></br>
+        <h2><%= t ".top_view" %></h2></br>
         <p class="text-right"><a href="#">
-        <%= link_to (t".see_all") , top_movie_films_path(type: :top_view)%></a>
+        <%= link_to t(".see_all") , top_movie_films_path(type: :top_view)%></a>
         </p>
       </div>
       <% @top_view_film.each do|f| %>
@@ -17,9 +17,9 @@
     </div>
     <div class="box">
       <div class="head">
-        <h2><%= t".lastest_trailer" %></h2></br>
+        <h2><%= t ".lastest_trailer" %></h2></br>
         <p class="text-right"><a href="#">
-        <%= link_to (t".see_all") , top_movie_films_path(type: :lastest_trailer)%></a></p>
+        <%= link_to t(".see_all") , top_movie_films_path(type: :lastest_trailer)%></a></p>
       </div>
       <% @top_updated_film.each do |f| %>
         <%=  render partial: "films/film" , locals: {film: f} %>
@@ -28,9 +28,9 @@
     </div>
     <div class="box">
       <div class="head">
-        <h2><%= t".top_rated"%></h2></br>
+        <h2><%= t ".top_rated" %></h2></br>
         <p class="text-right"><a href="#">
-        <%= link_to (t".see_all"),top_movie_films_path(type: :top_rated)%></a></p>
+        <%= link_to t(".see_all"),top_movie_films_path(type: :top_rated)%></a></p>
       </div> 
       <% @top_rating_film.each do|f| %>
         <%=  render partial: "films/film" , locals: {film: f} %>
@@ -39,9 +39,9 @@
     </div>
     <div class="box">
       <div class="head">
-        <h2><%= t".most_commented"%></h2></br>
+        <h2><%= t ".most_commented" %></h2></br>
         <p class="text-right"><a href="#">
-        <%= link_to (t".see_all"),top_movie_films_path(type: :top_comment)%></a></p>
+        <%= link_to t(".see_all"),top_movie_films_path(type: :top_comment)%></a></p>
       </div>
       <% @top_comment_film.each do |f| %>
         <%=  render partial: "films/film" , locals: {film: f} %>

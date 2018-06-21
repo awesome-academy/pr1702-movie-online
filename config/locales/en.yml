@@ -119,3 +119,75 @@ en:
       list_friend: "LIST FRIEND"
       requested_friend: "REQUESTED FRIEND"
       requesting_friend: "REQUESTING FRIEND"
+  devise:
+    confirmations:
+      new:
+        resend_confirm: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome"
+        message: "You can confirm your account email through the link below:"
+        confirm: "Confirm my account"
+      email_changed:
+        hello: "Hello"
+        message: "We're contacting you to notify you that your email is being changed to"
+      password_changed:
+        hello: "Hello"
+        message: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        hello: "Hello"
+        message1: "Someone has requested a link to change your password. You can do this through the link below."
+        change_password: "Change my password"
+        message2: "If you didn't request this, please ignore this email."
+        message3: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        hello: "Hello"
+        message1: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        message2: "Click the link below to unlock your account:"
+        unlock_account: "Unlock my account"
+    menu:
+      login_items:
+        account: "ACCOUNT"
+        profile:  "PROFILE"
+        edit_infor: "EDIT INFOR"
+        friends: "FRIENDS"
+        requested_friends: "REQUESTED FRIENDS"
+        requesting_friends: "REQUESTING FRIENDS"
+        log_out: "LOGOUT"
+        log_in: "LOGIN"
+      registration_items:
+        sign_up: "SIGNUP"
+    passwords:
+      edit:
+        change_your_password: "Change your password"
+        new_password: "New password"
+        confirm: "Confirm new password"
+        change_my_password: "Change my password"
+      new:
+        forgot_password: "Forgot your password?"
+        send: "Send me reset password instructions"
+    registrations:
+      edit:
+        edit: "Edit"
+        message1: "Currently waiting confirmation for: "
+        message2: "(leave blank if you don't want to change it)"
+        message3: "(we need your current password to confirm your changes)"
+        update: "Update"
+        cancel: "Cancel my account"
+        back: "Back"
+        unhappy?: "Unhappy?"
+      new:
+        sig_up: "Sign up"
+    sessions:
+      new:
+        log_in: "Log in"
+    shared:
+      links:
+        log_in: "Log in"
+        sign_up: "Sign up"
+        forgot_password: "Forgot your password?"
+        confirm: "Didn't receive confirmation instructions?"
+        unlock: "Didn't receive unlock instructions?"
+    unlocks:
+      new:
+        resend_unlock: "Resend unlock instructions"

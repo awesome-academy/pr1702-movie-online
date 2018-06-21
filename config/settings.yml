@@ -2,3 +2,7 @@ film:
   movie: "1"
   tv_series: "2"
   per_page: 12
+static_page:
+  top_movie: 6
+user:
+  index: 10
