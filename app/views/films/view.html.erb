@@ -4,7 +4,7 @@
   </div>
   <% if @episode.link_exist? %>
     <div class="video-container">
-      <%= videojs_rails sources: { mp4: @episode.get_link(params[:link_quality])}, setup: "{}", controls: true, width:"980", height: "500" %>
+      <%= video_tag @episode.get_link(params[:link_quality]), controls: true, height: 500 %>
     </div>
     <div class="quality">
       <% @episode.link_episodes.each do |link| %>

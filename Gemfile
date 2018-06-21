@@ -23,7 +23,6 @@ gem "ratyrate"
 gem "sass-rails", "~> 5.0"
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
-gem "videojs_rails"
 gem "whenever", require: false
 gem "will_paginate", "3.1.6"
 
