@@ -155,7 +155,7 @@ ActiveRecord::Schema.define(version: 20180621021621) do
     t.datetime "updated_at",    null: false
     t.integer  "status"
     t.index ["requested_id"], name: "index_relationships_on_requested_id", using: :btree
-    t.index ["requesting_id", "requested_id"], name: "index_relationships_on_requesting_id_and_requested_id", unique: true, using: :btree
+    t.index ["requesting_id", "requested_id"], name: "index_relationships_on_requesting_id_and_requested_id", using: :btree
     t.index ["requesting_id"], name: "index_relationships_on_requesting_id", using: :btree
   end
 

@@ -15,23 +15,26 @@ class FilmsController < ApplicationController
   end
 
   def top_movie
-    @top_movies = Film.top_movie_by(params[:type]).paginate(page: params[:page], per_page: 12)
+    @top_movies = Film.top_movie_by(params[:type]).paginate(page: params[:page], per_page: Settings.film.per_page)
   end
 
   def show
     @film = Film.friendly.find_by slug: params[:id]
     redirect_to root_url unless @film
     @avg_rating = @film.rate_cal
-    @comments = @film.comments.order("created_at DESC").paginate(page: params[:page], per_page: 12)
+    @comments = @film.comments.sort_comments.paginate(page: params[:page], per_page: Settings.film.per_page)
   end
 
   def view
     @film = Film.friendly.find_by slug: params[:id]
     redirect_to root_url unless @film
-    @episodes = @film.episodes.order("num_epi ASC")
-
+    @episodes = @film.episodes.sort_episodes
     @episode = params[:episode_id] ? @episodes.find_by(id: params[:episode_id]) : @episodes.first
+    if @episode.link_exist?
+      @quality = @episode.link_episodes.last.quality unless params[:quality]
+    end
     redirect_to view_film_path(@film) unless @episodes.include? @episode
+    @comments = @film.comments.sort_comments.paginate(page: params[:page], per_page: Settings.film.per_page)
   end
 
   private
