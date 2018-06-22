@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180618070742) do
+ActiveRecord::Schema.define(version: 20180621021621) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 20180618070742) do
     t.integer  "comment_count"
     t.float    "rate_point"
     t.integer  "released_episodes_status"
+    t.string   "slug"
+    t.index ["slug"], name: "index_films_on_slug", unique: true, using: :btree
   end
 
   create_table "genres", force: :cascade do |t|
@@ -153,7 +155,7 @@ ActiveRecord::Schema.define(version: 20180618070742) do
     t.datetime "updated_at",    null: false
     t.integer  "status"
     t.index ["requested_id"], name: "index_relationships_on_requested_id", using: :btree
-    t.index ["requesting_id", "requested_id"], name: "index_relationships_on_requesting_id_and_requested_id", using: :btree
+    t.index ["requesting_id", "requested_id"], name: "index_relationships_on_requesting_id_and_requested_id", unique: true, using: :btree
     t.index ["requesting_id"], name: "index_relationships_on_requesting_id", using: :btree
   end
 

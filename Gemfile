@@ -21,6 +21,7 @@ gem "rails_admin"
 gem "ransack"
 gem "ratyrate"
 gem "sass-rails", "~> 5.0"
+gem 'friendly_id', '~> 5.1.0'
 gem "turbolinks", "~> 5"
 gem "uglifier", ">= 1.3.0"
 gem "whenever", require: false

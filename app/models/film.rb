@@ -2,6 +2,9 @@ class Film < ApplicationRecord
   ratyrate_rateable :rate
   has_many :episodes
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :film_genres
   has_many :genres, through: :film_genres
 

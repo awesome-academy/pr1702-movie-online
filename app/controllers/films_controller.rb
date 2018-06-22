@@ -19,14 +19,14 @@ class FilmsController < ApplicationController
   end
 
   def show
-    @film = Film.find_by id: params[:id]
+    @film = Film.friendly.find_by slug: params[:id]
     redirect_to root_url unless @film
     @avg_rating = @film.rate_cal
     @comments = @film.comments.order("created_at DESC").paginate(page: params[:page], per_page: 12)
   end
 
   def view
-    @film = Film.find_by id: params[:id]
+    @film = Film.friendly.find_by slug: params[:id]
     redirect_to root_url unless @film
     @episodes = @film.episodes.order("num_epi ASC")
 

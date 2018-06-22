@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   devise_for :users , controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :users, only: [:index, :show]
+
   resources :films do
     get :view, on: :member
     collection do
@@ -17,6 +18,7 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+
   resources :relationships, only: [:index, :create, :update] do
     get :requesting_friends, :requested_friends, on: :collection
     delete :cancel_request_with, :delete_request_from, on: :member

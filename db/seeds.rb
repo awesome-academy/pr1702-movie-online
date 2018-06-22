@@ -23,3 +23,7 @@ Relationship.create(requesting_id: User.first.id, requested_id: User.third.id, s
 Relationship.create(requesting_id: User.fifth.id, requested_id: User.first.id, status:"requested")
 
 Relationship.create(requesting_id: User.fourth.id, requested_id: User.first.id, status:"requested")
+
+Film.all.each do |film|
+  film.update_attributes slug: film.name.split(" ").push(film.id).join("-")
+end
