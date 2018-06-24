@@ -1,6 +1,7 @@
 class Episode < ApplicationRecord
   belongs_to :film
   has_many :link_episodes
+  scope :sort_episodes, ->{order("num_epi ASC")}
 
   def link_exist?
     link_episodes.any?

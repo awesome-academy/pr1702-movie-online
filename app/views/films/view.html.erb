@@ -1,28 +1,64 @@
-<div class="film-container" >
-  <div id="film-name">
-    <%= @film.name %>
-  </div>
+<div class="film-container" ></br>
+  <h1 id="H1_1v">
+    <%= @film.name %><br id="BR_2v" />
+    <i id="I_3v"><%= @film.alter_name %></i>
+  </h1>
   <% if @episode.link_exist? %>
-    <div class="video-container">
-      <%= video_tag @episode.get_link(params[:link_quality]), controls: true, height: 500 %>
+    <div class="VIDEO_1v">
+      <%= video_tag @episode.get_link(params[:quality]), controls: true, height: 500 %>
     </div>
-    <div class="quality">
+    <ul id="UL_4v">
       <% @episode.link_episodes.each do |link| %>
-        <%= link_to link.quality, view_film_path(@film, episode_id: @episode.id,
-                                                         quality: link.quality) %>
+        <li id="LI_10v">
+          <% if params[:quality] == link.quality || @quality == link.quality %> 
+            <%= link_to link.quality, view_film_path(@film, episode_id: @episode.id,
+                                                           quality: link.quality), id: "A_9v" %>
+          <% else %>
+            <%= link_to link.quality, view_film_path(@film, episode_id: @episode.id,
+                                                           quality: link.quality), id: "A_8v" %>
+          <% end %>
+        </li>
       <% end %>
-    </div>
-
+    </ul>
   <% else %>
     <%= t ".link_not_exist" %>
   <% end %>
 
   <% unless @film.movie? %>
-    <%= t ".list_of_episodes" %>
-    <div class="tv_series">
+    <h4><%= t ".list_of_episodes" %></h4>
+    <ul id="UL_4v">
       <% @episodes.each do |episode| %>
-        <%= link_to episode.num_epi, view_film_path(@film, episode_id: episode.id) %>
+        <li id="LI_5v">
+          <% if episode == @episode %>
+            <%= link_to episode.num_epi, view_film_path(@film, episode_id: episode.id), id: "A_7v" %>
+          <% else %>
+            <%= link_to episode.num_epi, view_film_path(@film, episode_id: episode.id), id: "A_6v" %>
+          <% end %>
+        </li>
       <% end %>
-    </div>
+    </ul>
   <% end %>
 <div>
+<div id="DIV_204">
+  <h4 id="H4_205">
+    <%= t ".comments" %>
+  </h4>
+  <div id="DIV_206">
+    <%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track": false %>
+    <% if user_signed_in? %>
+    <div>
+      <%= form_for (Comment.new), url: film_comments_path(@film) do |f| %>
+        <%= f.text_area :content,:placeholder => "binh luan" %>
+        <%= f.hidden_field :user_id %>
+        <%= f.hidden_field :film_id %>
+        <%= f.submit "Gui" %>
+      <% end %>
+    </div>
+    <%end%>
+    <div>
+      <%= render @comments %>
+      <%= will_paginate @comments %>
+    </div>
+  </div>
+</div>
+

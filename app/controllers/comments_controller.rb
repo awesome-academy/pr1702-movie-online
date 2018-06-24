@@ -8,7 +8,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.film_id = @film.id
     flash[:danger]= t "controllers.comments.create.comment_not_save" unless @comment.save 
-    redirect_to film_path(@film)
+    redirect_back fallback_location: root_path
   end
 
   def destroy
@@ -30,7 +30,8 @@ class CommentsController < ApplicationController
 
   private
   def find_film
-    redirect_to root_path unless @film = Film.find(params[:film_id])
+    @film = Film.friendly.find(params[:film_id])
+    redirect_to root_path unless @film
   end
 
   def find_comment
