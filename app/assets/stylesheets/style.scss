@@ -4073,3 +4073,19 @@ input, textarea, select {
     list-style: none outside none;
     outline: rgb(241, 158, 7) none 0px;
 }/*#LI_2:before, #LI_4:before, #LI_6:before, #LI_8:before, #LI_10:before, #LI_12:before, #LI_14:before, #LI_16:before, #LI_18:before, #LI_20:before*/
+
+.language {
+  float: right;
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    li {
+      float: left;
+      margin-right: 10px;
+    }
+  }
+}
