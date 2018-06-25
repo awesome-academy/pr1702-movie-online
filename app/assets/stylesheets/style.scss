@@ -103,14 +103,6 @@ h1#logo a {
   width:160px;
   padding-top:11px;
 }
-.social span {
-  float:left;
-  display:inline;
-  font-size:10px;
-  color:#9f9f9f;
-  line-height:16px;
-  padding-right:5px;
-}
 .social ul {
   list-style:none;
 }
@@ -125,19 +117,9 @@ h1#logo a {
   display:inline;
   width:16px;
   height:16px;
-  background-image:url("social.gif");
   font-size:0;
   line-height:0;
   text-indent:-4000px;
-}
-.social ul li a.facebook {
-  background-position:-18px 0;
-}
-.social ul li a.vimeo {
-  background-position:-36px 0;
-}
-.social ul li a.rss {
-  background-position:-54px 0;
 }
 #navigation {
   float:right;
