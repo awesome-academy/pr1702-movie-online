@@ -8,7 +8,7 @@ class FilmsController < ApplicationController
     filter_params.each do |key, val|
       filter_films.merge!(filter_films.send(key, val)) if (Film.respond_to? key) && (val.present?)
     end
-    @category = [["Movie", "1"], ["TV_series", "2"]]
+    @category = [[I18n.t("films.filter.movie"), "1"], [I18n.t("films.filter.tv_series"), "2"]]
     @selected_params = filter_params
     @films = filter_films.paginate(page: params[:page],
                                     per_page: Settings.film.per_page)

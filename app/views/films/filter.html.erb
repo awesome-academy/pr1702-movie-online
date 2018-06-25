@@ -1,11 +1,11 @@
 <%= form_tag filter_films_path, method: "get" do %>
-  <%= select_tag "category", options_for_select(@category, @selected_params[:category]),
-                                                prompt: "Category" %>
-  <%= select_tag "origin", options_from_collection_for_select(@origins, :id, :name, @selected_params[:origin]),
-                                                prompt: "Origins" %>
-  <%= select_tag "genre", options_from_collection_for_select(@genres, :id, :name, @selected_params[:genre]),
-                                                prompt: "Genres" %>
-  <%= submit_tag "Filter", name: nil %>
+  <%= select_tag t(".category"), options_for_select(@category, @selected_params[:category]),
+                                                prompt: t(".category") %>
+  <%= select_tag t(".origin"), options_from_collection_for_select(@origins, :id, :name, @selected_params[:origin]),
+                                                prompt: t(".origin")%>
+  <%= select_tag t(".genre"), options_from_collection_for_select(@genres, :id, :name, @selected_params[:genre]),
+                                                prompt: t(".genre") %>
+  <%= submit_tag t(".filter"), name: nil %>
 <% end %>
 <div class="box">
   <div class="head">

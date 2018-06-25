@@ -1,0 +1,184 @@
+vi:
+  models:
+    relationships:
+      deny_self_referential_friendship:
+        can_not_add_self: "Không thể tự kết bạn!"
+  controllers:
+    comments:
+      create:
+        comment_not_save: "Bình luận chưa được lưu!"
+      destroy:
+        delete_success: "Đã xóa bình luận"
+        delete_fail: "Xóa bình luận thất  bại!"
+      comment_owner:
+        you_can_not: "Không thể thực hiện hành động này"
+    relationships:
+      create:
+        request_success: "Gửi lời mời kết bạn thành công"
+        request_failure: "Gửi lời mời kết bạn thất bại"
+      update:
+        accept_success: "Đã đồng ý kết bạn"
+        accept_failure: "Đồng ý kết bạn thất bại"
+      unfriend:
+        unfriend_success: "Đã hủy kết bạn"
+        unfriend_failure: "Hủy kết bạn thất bại"
+      cancel_request_with:
+        cancel_success: "Hủy lời mời thành công"
+        cancel_failure: "Hủy lời mời thất bại"
+      delete_request_from:
+        delete_success: "Xóa lời mời thành công"
+        delete_failure: "Xóa lời mời thất bại"
+  layouts:
+    header:
+      movie_hunter: "Movie Hunter"
+      follow: "FOLLOW US ON:"
+      twitter: "Twitter"
+      facebook: "Facebook"
+      vimeo: "Vimeo"
+      rss: "Rss"
+      home: "HOME"
+      new: "NEW"
+      theaters: "IN THEATERS"
+      coming_soon: "Sắp có"
+      users: "Mọi người"
+      contact: "Liên hệ"
+      advertise: "Quảng cáo"
+      show: "Hiển thị toàn bộ"
+      lastest_trailer: "Trailer mới nhất"
+      top_rate: "Rating cao nhất"
+      most_commented: "Comment nhiều nhất"
+      search: "Tìm kiếm"
+      movie: "Phim lẻ"
+      tv_series: "Phim bộ"
+      origin: "Quốc gia"
+      genre: "Thể loại"
+    footer:
+      nguon: "Copyright &copy; 2010"
+      site_name: "SiteName"
+      reserved: "All Rights Reserved"
+      design_by: "Design by"
+      link_theme: "ChocoTemplates.com"
+    application:
+      pr1720: "Pr1702MovieOnline"
+  static_pages:
+    home:
+      lastest_trailer: "Mới nhất"
+      rating: "RATING"
+      see_all: "Tất cả"
+      top_view: "Phim nhiều lưọt xem"
+      most_commented: "Phim nhiều lượt comment"
+      top_rated: "Rating cao nhất"
+    search:
+      resurl: "Kết quả"
+  films:
+    view:
+      link_not_exist: "Không có link"
+      list_of_episodes: "Tập"
+    show:
+      nation: "Quốc gia:"
+      year: "Năm:"
+      language: "Ngôn ngữ:"
+      subtitle: "Phụ đề Việt"
+      genres: "Thể loại:"
+      view: "Lượt xem:"
+      rate_this_film: "Rate this film  :"
+      watch: "Xem phim"
+      content: "Nội dung phim"
+      comments: "Bình luận về phim"
+    filter:
+      category: "Kiểu phim"
+      tv_series: "Phim bộ"
+      movie: "Phim lẻ"
+      origin: "Quốc gia"
+      genre: "Thể loại"
+      filter: "Lọc"
+  users:
+    user:
+      cancel: "Hủy"
+      delete: "Xóa"
+      accept: "Đồng ý"
+      request: "Yêu cầu"
+      unfriend: "Xóa bạn bè"
+    show:
+      addfriend: "Kết bạn"
+  relationships:
+    index:
+      list_friend: "Danh sách bạn bè"
+      requested_friend: "Danh sách chờ kết bạn"
+      requesting_friend: "Danh sách chờ đồng ý"
+  devise:
+    confirmations:
+      new:
+        resend_confirm: "Gửi lại email confirm"
+    mailer:
+      confirmation_instructions:
+        welcome: "Chào mừng"
+        message: "Xác nhận theo link bên dưới"
+        confirm: "Xác nhận tài khoản của tôi"
+      email_changed:
+        hello: "Xin chào"
+        message: "Chúng tôi liên hệ với bạn để thông báo tài khoản được chuyển đổi tới"
+      password_changed:
+        hello: "Xin chào"
+        message: "Chúng tôi liên hệ với bạn để thông báo mật khẩu được chuyển đổi tới"
+      reset_password_instructions:
+        hello: "Xin chào"
+        message1: "Ai đó đã yêu cầu thay đổi pasword của bạn, xác nhận theo đưòng dẫn dưới đây"
+        change_password: "Thay đổi mật khẩu"
+        message2: "Nếu bạn không yêu cầu thay đổi mật khâu, bỏ qua email này"
+        message3: "Mật khẩu của bạn không thay đổi nếu bạn không click vào link này và tạo mật khẩu mới"
+      unlock_instructions:
+        hello: "Hello"
+        message1: "Tài khoản bị khóa do quá số lần thử sai mật khẩu"
+        message2: "Click vào link sau để mở khóa tài khoản"
+        unlock_account: "Mở khóa tài khoản"
+    menu:
+      login_items:
+        account: "Tài khoản"
+        profile:  "Trang cá nhân"
+        edit_infor: "Thay đổi thông tin"
+        friends: "Bạn bè"
+        requested_friends: "Yêu cầu kết bạn"
+        requesting_friends: "Đang chờ"
+        log_out: "Đăng xuất"
+        log_in: "Đăng nhập"
+      registration_items:
+        sign_up: "Đăng kí"
+    passwords:
+      edit:
+        change_your_password: "Đổi mật khẩu"
+        new_password: "Mật khẩu mới"
+        confirm: "Xác nhận"
+        change_my_password: "Thay đổi mật khẩu"
+      new:
+        forgot_password: "Quên mật khẩu"
+        send: "Gửi tôi hướng dẫn đổi mật khẩu"
+    registrations:
+      edit:
+        edit: "Thay đổi"
+        message1: "Chờ xác nhận cho:"
+        message2: "(Bỏ trống nếu bạn không muốn thay đổi)"
+        message3: "(Điền mật khẩu để thay đổi)"
+        update: "Update"
+        cancel: "Cancel my account"
+        back: "Trở lại"
+        unhappy?: "Không hài lòng?"
+      new:
+        sig_up: "Đăng kí"
+    sessions:
+      new:
+        log_in: "Đăng nhập"
+    shared:
+      links:
+        log_in: "Đăng nhập"
+        sign_up: "Đăng kí"
+        forgot_password: "Quên mật khẩu?"
+        confirm: "Không nhận được email?"
+        unlock: "Không nhận được hướng dẫn unlock?"
+    unlocks:
+      new:
+        resend_unlock: "Gửi hưóng dẫn mở khóa"
+  will_paginate:
+    next_label: "Tiếp theo"
+    previous_label: "Trước đó"
+    page_gap: "..."

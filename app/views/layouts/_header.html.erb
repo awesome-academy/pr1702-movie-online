@@ -1,16 +1,14 @@
 <header id="header">
-    <h1 id="logo"><%=link_to (t ".movie_hunter"), root_path%></h1>
-    <div class="social"> <span><%= t".follow" %></span>
+    <h1 id="logo"><%=link_to t(".movie_hunter"), root_path%></h1>
+    <div class="social">
       <ul>
-        <li><a class="twitter" href="#">t ".twitter"</a></li>
-        <li><a class="facebook" href="#">t ".facebook"</a></li>
-        <li><a class="vimeo" href="#">t ".vimeo"</a></li>
-        <li><a class="rss" href="#">t ".rss"</a></li>
+        <li><%= link_to "English", locale: "en" %></li>
+        <li><%= link_to "Vietnamese", locale: "vi" %></li>
       </ul>
     </div>
     <div id="navigation">
       <ul>
-        <li><a class="active"><%= link_to (t ".home") ,root_path%></a></li>
+        <li><%= link_to t(".users"), users_path %></li>
         <li><%= render 'devise/menu/registration_items' %></li>
         <li><%= render 'devise/menu/login_items' %></li>
       </ul>
@@ -18,10 +16,10 @@
     <div id="sub-navigation">
       <ul>
         <li>
-           <%= link_to (t ".movie"), filter_films_path(category: Settings.film.movie) %>
+           <%= link_to t(".movie"), filter_films_path(category: Settings.film.movie) %>
         </li>
         <li>
-           <%= link_to (t ".tv_series"), filter_films_path(category: Settings.film.tv_series) %>
+           <%= link_to t(".tv_series"), filter_films_path(category: Settings.film.tv_series) %>
         </li>
 
         <li class="dropdown">
