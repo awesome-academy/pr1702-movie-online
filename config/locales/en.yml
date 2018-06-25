@@ -127,6 +127,10 @@ en:
       list_friend: "LIST FRIEND"
       requested_friend: "REQUESTED FRIEND"
       requesting_friend: "REQUESTING FRIEND"
+    requesting_friends:
+      requesting_friends: "Requesting Friends"
+    requested_friends:
+      requested_friends: "Requested Friends"
   devise:
     confirmations:
       new:
@@ -185,7 +189,7 @@ en:
         back: "Back"
         unhappy?: "Unhappy?"
       new:
-        sig_up: "Sign up"
+        sign_up: "Sign up"
     sessions:
       new:
         log_in: "Log in"

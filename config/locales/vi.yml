@@ -104,8 +104,10 @@ vi:
   relationships:
     index:
       list_friend: "Danh sách bạn bè"
-      requested_friend: "Danh sách chờ kết bạn"
-      requesting_friend: "Danh sách chờ đồng ý"
+    requesting_friends:
+      requesting_friends: "Danh sách chờ đồng ý"
+    requested_friends:
+      requested_friends: "Danh sách chờ kết bạn"
   devise:
     confirmations:
       new:
@@ -164,7 +166,7 @@ vi:
         back: "Trở lại"
         unhappy?: "Không hài lòng?"
       new:
-        sig_up: "Đăng kí"
+        sign_up: "Đăng kí"
     sessions:
       new:
         log_in: "Đăng nhập"
