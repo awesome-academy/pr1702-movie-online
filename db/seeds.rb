@@ -24,6 +24,9 @@ Relationship.create(requesting_id: User.fifth.id, requested_id: User.first.id, s
 
 Relationship.create(requesting_id: User.fourth.id, requested_id: User.first.id, status:"requested")
 
-Film.all.each do |film|
-  film.update_attributes slug: film.name.split(" ").push(film.id).join("-")
+User.all.each do |user|
+  num_film = rand(1..100)
+  Film.all.sample(num_film).each do |film|
+    user.comments.create(film: film, content: "abc")
+  end
 end
