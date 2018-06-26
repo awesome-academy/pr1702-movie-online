@@ -30,6 +30,7 @@ class FilmsController < ApplicationController
     redirect_to root_url unless @film
     @episodes = @film.episodes.sort_episodes
     @episode = params[:episode_id] ? @episodes.find_by(id: params[:episode_id]) : @episodes.first
+    redirect_back(fallback_location: root_url) unless @episode
     if @episode.link_exist?
       @quality = @episode.link_episodes.last.quality unless params[:quality]
     end
