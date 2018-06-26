@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users , controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   post '/rate' => 'rater#create', :as => 'rate'
-
+  mount ActionCable.server => '/cable'
   scope "(:locale)", locale: /en|vi/ do
     root 'static_pages#home'
     get '/search', to: 'static_pages#search'

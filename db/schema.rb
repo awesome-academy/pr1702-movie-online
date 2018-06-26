@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180621021621) do
+ActiveRecord::Schema.define(version: 20180626155708) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,6 +111,16 @@ ActiveRecord::Schema.define(version: 20180621021621) do
     t.index ["episode_id"], name: "index_link_episodes_on_episode_id", using: :btree
   end
 
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "src_id"
+    t.string   "src_type"
+    t.string   "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
+  end
+
   create_table "origins", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
@@ -201,5 +211,6 @@ ActiveRecord::Schema.define(version: 20180621021621) do
   add_foreign_key "histories", "films"
   add_foreign_key "histories", "users"
   add_foreign_key "link_episodes", "episodes"
+  add_foreign_key "notifications", "users"
   add_foreign_key "shares", "films"
 end
