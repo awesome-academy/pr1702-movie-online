@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   post '/rate' => 'rater#create', :as => 'rate'
   mount ActionCable.server => '/cable'
+
   scope "(:locale)", locale: /en|vi/ do
     root 'static_pages#home'
     get '/search', to: 'static_pages#search'
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show]
 
-    resources :films do
+    resources :films, only: [:show] do
       get :view, on: :member
       collection do
         get :filter
