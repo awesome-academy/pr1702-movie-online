@@ -1,8 +1,6 @@
 class FilmsController < ApplicationController
   skip_before_action :authenticate_user!
 
-  def index; end
-
   def filter
     filter_films = Film.all
     filter_params.each do |key, val|
