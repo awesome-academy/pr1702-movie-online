@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :set_locale, :default_url_options
-  before_action :load_search, :load_origins, :load_genres
+  before_action :load_search, :load_origins, :load_genres, :load_notifications
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
@@ -29,5 +29,11 @@ class ApplicationController < ActionController::Base
 
   def default_url_options
     { locale: I18n.locale }
+  end
+
+  def load_notifications
+    if current_user
+      @notifications = current_user.notifications.reverse
+    end
   end
 end

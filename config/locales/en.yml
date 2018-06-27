@@ -24,6 +24,8 @@ en:
     relationships:
       deny_self_referential_friendship:
         can_not_add_self: "Can't add self!"
+      send_request:
+        send_friend_request: "send friend request!"
   controllers:
     comments:
       create:

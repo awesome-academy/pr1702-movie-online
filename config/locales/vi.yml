@@ -3,6 +3,8 @@ vi:
     relationships:
       deny_self_referential_friendship:
         can_not_add_self: "Không thể tự kết bạn!"
+      send_request:
+        send_friend_request: "gửi lời mời kết bạn"
   controllers:
     comments:
       create:
